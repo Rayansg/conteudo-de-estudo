@@ -1,0 +1,114 @@
+<meta charset="UTF-8">
+
+<input/>
+<button>descubra meu segredo</button>
+
+<script>
+
+
+
+
+	function sorteado() {
+
+		return Math.round(Math.random() * 10);
+
+	}
+
+	function sorteiaNumeros(quantidade) {
+		
+		var numeroSorteados = [];
+
+		var contador = 1;
+
+		while(contador <= quantidade) {
+
+
+			var numeroAleatorio = sorteado();
+
+			var repetido = false;
+
+			
+			for (var posicao = 0; posicao < numeroSorteados.length; posicao++) {
+				
+				if(numeroSorteados[posicao] == numeroAleatorio) {
+
+					
+					repetido = true;
+					break;
+				}
+
+			}
+
+			if(repetido == false) {
+
+				numeroSorteados.push(numeroAleatorio);
+				contador++
+
+			}
+
+		
+		}
+
+		return numeroSorteados;
+	}
+
+	var numeroSorteados = sorteiaNumeros(4)
+
+	var input = document.querySelector("input");
+
+	input.focus();
+
+	var tentativasAtual = 1;
+	var maxTentativas = 4;
+
+
+		function verifica() {
+
+			var achou = false;
+
+
+				for(var posicao = 0; posicao < numeroSorteados.length; posicao++) {
+
+					while(tentativasAtual <= maxTentativas) {
+
+						if (input.value == numeroSorteados[posicao]) {
+
+						alert("ACERTOU");
+
+						tentativasAtual = maxTentativas;
+						achou = true;
+						
+
+							} else {
+
+							
+
+									if(tentativasAtual == maxTentativas) {
+
+										alert("ERROU! numero de tentativas excedido!")
+				
+											} else {
+
+												alert("Numero invalido, tente novamente")									
+										}	
+								}	
+									tentativasAtual = tentativasAtual - 1	
+									
+							}
+								
+						}	
+					}
+						
+
+						
+					
+		
+				input.value = "";
+				input.focus();
+	
+		var button = document.querySelector("button");
+		button.onclick = verifica
+
+		console.log(numeroSorteados)
+
+</script>
