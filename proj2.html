@@ -64,41 +64,33 @@
 
 		function verifica() {
 
-			var achou = false;
+    					
+    					if (tentativasAtual <= maxTentativas) {
+      					var achou = false;
 
+     		 		for (var posicao = 0; posicao < numeroSorteados.length; posicao++) {
+        						
+        				if (input.value == numeroSorteados[posicao]) {
+          						
+          					achou = true;
+        								}
+      				}
 
-				for(var posicao = 0; posicao < numeroSorteados.length; posicao++) {
+      						if (achou) {
+        					alert('ACERTOU');
+        								
+        					tentativasAtual = 1; 
+      										
+      						} else {
+        					alert('Numero invalido, tente novamente');
+      						}
+    						
+    						} else {
+      						alert('ERROU! numero de tentativas excedido!');
+    						}
 
-					while(tentativasAtual <= maxTentativas) {
-
-						if (input.value == numeroSorteados[posicao]) {
-
-						alert("ACERTOU");
-
-						tentativasAtual = maxTentativas;
-						achou = true;
-						
-
-							} else {
-
-							
-
-									if(tentativasAtual == maxTentativas) {
-
-										alert("ERROU! numero de tentativas excedido!")
-				
-											} else {
-
-												alert("Numero invalido, tente novamente")									
-										}	
-								}	
-									tentativasAtual = tentativasAtual - 1	
-									
-							}
-								
-						}	
-					}
-						
+    				tentativasAtual++;
+  		}			
 
 						
 					
